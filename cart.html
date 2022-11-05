@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>The Flower Shop</title>
+    <meta name="description" content="This is the description">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="script.js" async></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <section id="header">
+            <a href="#" class="name">The Flower Shop</a>
+            <div>
+                <ul id="navbar">
+                    <li><a class="active" href="index.html">Home</a></li>
+                </ul>
+            </div>
+        </section>
+    </header>
+    <section class="container content-section" id="section1">
+        <h2 class="section-header">Products For Sale</h2>
+        <div class="shop-items">
+            <div class="shop-item">
+                <span class="shop-item-title">Product1</span>
+                <img class="shop-item-image" src="images/christie-kim-0IsBu45B3T8-unsplash.jpg" width="250"
+                    height="250">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">R180.00</span>
+                    <button class="btn  shop-item-button" type="button">Add To Cart</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Product 2</span>
+                <img class="shop-item-image" src="images/feey-OuWeHz4lPZg-unsplash.jpg" width="250" height="250">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">R150.00</span>
+                    <button class="btn  shop-item-button" type="button">Add To Cart</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Product 3</span>
+                <img class="shop-item-image" src="images/sarah-bronske-rGpZ6RKefXU-unsplash.jpg" width="250"
+                    height="250">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">R80.00</span>
+                    <button class="btn shop-item-button" type="button">Add To Cart</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Product 4</span>
+                <img class="shop-item-image" src="images/stephanie-harvey-T0inbt7nRME-unsplash.jpg" width="250"
+                    height="250">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">R200.00</span>
+                    <button class="btn  shop-item-button" type="button">Add To Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container content-section" id="section2">
+        <h2 class="section-header">Summer Sale</h2>
+        <div class="shop-items">
+            <div class="shop-item">
+                <span class="shop-item-title">Sale Product 1</span>
+                <img class="shop-item-image" src="images/stephanie-harvey-vHkj3fX9wCk-unsplash.jpg" width="250"
+                    height="250">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">R80.00</span>
+                    <button class="btn  shop-item-button" type="button">Add To Cart</button>
+                </div>
+            </div>
+            <div class="shop-items">
+                <div class="shop-item">
+                    <span class="shop-item-title">Sale Product 2</span>
+                    <img class="shop-item-image" src="images/isaac-quesada-e-OLt1iPY3Y-unsplash.jpg" width="250"
+                        height="250">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">R80.00</span>
+                        <button class="btn  shop-item-button" type="button">Add To Cart</button>
+                    </div>
+                </div>
+    </section>
+
+    <section class="Discount-delivery">
+        <div class="discount-display">
+            <h3 class="discount-header">
+                15% Discount Applied: R <span id="disOut">.....</span>
+            </h3>
+            <form type="form">
+                <input type="hidden" id="amtIn" placeholder="Enter Total Cart amount" onChange="updateTotal()">
+                <input type="text" id="code" placeholder="Enter Discount Code">
+                <input class="discount-btn" type="button" value="Apply Discount"
+                    onClick="applyDiscount(document.getElementById('amtIn').value)">
+            </form>
+        </div>
+        <div class="deliver-button">
+            <h3 class="discount-header del-display">Delivery selected!</h3>
+            <label class="field ">
+
+                <span class="field__label" for="deliver">Delivery</span>
+                <button class="delivery delBtn" value="0">Deliver</button>
+        </div>
+        </label>
+    </section>
+    <section class="container content-section" id="section3">
+        <h2 class="section-header">Cart Purchases</h2>
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column">Item</span>
+            <span class="cart-price cart-header cart-column">Price</span>
+            <span class="cart-quantity cart-header cart-column">Quantity</span>
+        </div>
+        <div class="cart-items">
+        </div>
+        <div class="cart-sub-total">
+            <strong class="Sub-total-title">SubTotal</strong>
+            <span class="sub-total-price">R0.00</span>
+        </div>
+        <div class="cart-dis-total">
+            <strong class="dis-total-title">Discount</strong>
+            <span class="dis-total-price">R0.00</span>
+        </div>
+        <div class="cart-delivery-total">
+            <strong class="delivery-title">Delivery Fee</strong>
+            <span class="del-total-price">R0.00</span>
+        </div>
+        <div class="vat-delivery-total">
+            <strong class="delivery-title">Vat</strong>
+            <span class="vat-total-price">R0.00</span>
+        </div>
+        <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price">R0.00</span>
+        </div>
+        <section class="container content-section shipping-form" id="section4">
+            <h2 class="h2-shipping">Shipping</h1>
+                <p class="p-shipping">Please enter your shipping details.</p>
+                <div class="form">
+                    <div class="fields fields2">
+                        <label class="field">
+                            <span class="field__label" for="firstname">First Name</span>
+                            <input class="field__input" type="text" id="firstname" />
+                        </label>
+                        <label class="field">
+                            <span class="field__label" for="lastname">Last Name</span>
+                            <input class="field__input" type="text" id="lastname" />
+                        </label>
+                    </div>
+                    <label class="field">
+                        <span class="field__label" for="address">Address</span>
+                        <input class="field__input" type="text" id="address" />
+                    </label>
+                    <label class="field">
+                        <span class="field__label" for="country">Country</span>
+                        <select class="field__input" id="country">
+                            <option value=""></option>
+                            <option>South Africa </option>
+                            <option>Africa</option>
+                        </select>
+                    </label>
+                    <div class="fields fields3">
+                        <label class="field">
+                            <span class="field__label" for="postal-code">Postal Code</span>
+                            <input class="field__input" type="text" id="Postal- Code" />
+                        </label>
+                        <label class="field">
+                            <span class="field__label" for="city">City</span>
+                            <input class="field__input" type="text" id="city" />
+                        </label>
+                    </div>
+                </div>
+
+                </div>
+        </section>
+
+        <button class="btn-purchase" id="checkout" type="button">Check Out</button>
+
+        <footer class="main-footer">
+
+            <div class="container main-footer-container">
+                <a href="#" class="name">The Flower Shop</a>
+                <h4 class="footer-h4">Contact:</h4>
+                <div class="col">
+
+
+                    <p class="footer-p"><strong>Address:</strong> Parliment Street, Cape Town CBD |</p>
+                    <p class="space"><strong>Phone:</strong> +27 81034556 | </p>
+                    <p class="space"><strong>Hours:</strong> 10.00-18.00, Mon-Sat</p>
+
+                </div>
+                <div class="follow">
+                    <h4 class="footer-follow-us">Follow Us</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-pinterest"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&#xa9; Copyright 2022, The Flower Shop</p>
+                </div>
+        </footer>
+</body>
+
+</html>
